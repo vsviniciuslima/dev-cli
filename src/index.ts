@@ -42,5 +42,9 @@ yargs(hideBin(process.argv))
       console.log(`Your color is ${color}!`);
     }
   )
-  .demandCommand()
+  .option("verbose", {
+    alias: "v",
+    type: "boolean",
+    description: "Run with verbose logging",
+  })
   .parse();

@@ -1,3 +1,7 @@
+import { getArgs } from "../utils/args.js";
+
+console.log("argv from command", getArgs());
+
 export async function fetchDataAsync(): Promise<string> {
   // Simulate a delay of 2 seconds
   await new Promise((resolve) => setTimeout(resolve, 2000));
