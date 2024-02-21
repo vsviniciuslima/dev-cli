@@ -4,6 +4,7 @@ import yargs, { Argv, ArgumentsCamelCase } from "yargs";
 import { hideBin } from "yargs/helpers";
 
 import { fetchData, fetchDataAsync } from "./commands/command.js";
+import promptForTaskDetails from "./commands/formater.js";
 
 // Define your command and options
 // yargs
@@ -47,4 +48,37 @@ yargs(hideBin(process.argv))
     type: "boolean",
     description: "Run with verbose logging",
   })
+
+  .command(
+    "format <input>",
+    "Format an input",
+    (args: Argv) => {
+      args.positional("input", {
+        describe: "The input to format. e.g.) foo",
+      });
+    },
+    async ({ input }) => {
+      console.log("input", input);
+      const taskDetails = await promptForTaskDetails(input as string);
+      console.log("Task details:", taskDetails);
+    }
+  )
+  .help()
+
+  .command(
+    "newcon <input>",
+    "Format an input",
+    (args: Argv) => {
+      args.positional("input", {
+        describe: "The input to format. e.g.) foo",
+      });
+    },
+    async ({ input }) => {
+      console.log("input", input);
+      const taskDetails = await promptForTaskDetails(input as string);
+      console.log("Task details:", taskDetails);
+    }
+  )
+  .help()
+
   .parse();
