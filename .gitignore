@@ -4,9 +4,6 @@ node_modules/
 # TypeScript build output
 dist/
 
-# TypeScript configuration file
-tsconfig.json
-
 # Visual Studio Code settings
 .vscode/
 
