@@ -36,7 +36,7 @@ const promptForTaskDetails = async (input: String): Promise<TaskAnswers> => {
         choices: ["Coke", "Pepsi", "Sprite", "Water"],
       },
     ]);
-    console.log("list:", checkbox);
+    console.log("list:", list);
 
     const confirm = await inquirer.prompt([
       {
