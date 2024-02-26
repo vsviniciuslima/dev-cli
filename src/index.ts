@@ -4,8 +4,8 @@ import yargs, { Argv, ArgumentsCamelCase } from "yargs";
 import { hideBin } from "yargs/helpers";
 
 import { fetchData, fetchDataAsync } from "./commands/simple-command.js";
-import promptForTaskDetails from "./commands/formater.js";
-import { MyCommand, MyOptions } from "./commands/print.js";
+import promptForTaskDetails from "./commands/formatter.js";
+import { MyCommand, MyOptions } from "./commands/command.js";
 
 // Define your command and options
 // yargs
