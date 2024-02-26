@@ -3,8 +3,9 @@
 import yargs, { Argv, ArgumentsCamelCase } from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import { fetchData, fetchDataAsync } from "./commands/command.js";
+import { fetchData, fetchDataAsync } from "./commands/simple-command.js";
 import promptForTaskDetails from "./commands/formater.js";
+import { MyCommand, MyOptions } from "./commands/print.js";
 
 // Define your command and options
 // yargs
@@ -28,7 +29,14 @@ import promptForTaskDetails from "./commands/formater.js";
 //   .help().argv;
 
 console.log("Dev CLI");
+
+const yargsInstance = yargs(hideBin(process.argv));
+
+// Create an instance of MyCommand
+const myCommand = new MyCommand<MyOptions>();
+
 yargs(hideBin(process.argv))
+  .command(myCommand)
   .command(
     "select <color>",
     "Select a color to display",
