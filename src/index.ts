@@ -6,6 +6,8 @@ import { hideBin } from "yargs/helpers";
 import { fetchData, fetchDataAsync } from "./commands/simple-command.js";
 import promptForTaskDetails from "./commands/formatter.js";
 import { MyCommand, MyOptions } from "./commands/command.js";
+import { NewconCommand } from "./commands/newcon/newcon.js";
+import { NewconOptions } from "./commands/newcon/model.js";
 
 // Define your command and options
 // yargs
@@ -34,9 +36,10 @@ const yargsInstance = yargs(hideBin(process.argv));
 
 // Create an instance of MyCommand
 const myCommand = new MyCommand<MyOptions>();
-
+const newcon = new NewconCommand<NewconOptions>();
 yargs(hideBin(process.argv))
   .command(myCommand)
+  .command(newcon)
   .command(
     "select <color>",
     "Select a color to display",
@@ -59,22 +62,6 @@ yargs(hideBin(process.argv))
 
   .command(
     "format <input>",
-    "Format an input",
-    (args: Argv) => {
-      args.positional("input", {
-        describe: "The input to format. e.g.) foo",
-      });
-    },
-    async ({ input }) => {
-      console.log("input", input);
-      const taskDetails = await promptForTaskDetails(input as string);
-      console.log("Task details:", taskDetails);
-    }
-  )
-  .help()
-
-  .command(
-    "newcon <input>",
     "Format an input",
     (args: Argv) => {
       args.positional("input", {
