@@ -21,7 +21,7 @@ export async function getInstallPath(): Promise<string> {
       });
       return directory.directory;
     case "Instalar no diretorio padrão":
-      return "/usr/local/bin";
+      return `C:\Programas`;
     case "Instalar no diretorio atual":
       return process.cwd();
     default:

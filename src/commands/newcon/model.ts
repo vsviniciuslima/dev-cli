@@ -1,21 +1,10 @@
 import { Options } from "yargs";
+import { Application, ApplicationType } from "../utils/model.js";
 
 export interface NewconOptions extends Options {
   interactive: boolean;
   env: string;
   color: string;
-}
-
-export interface Application {
-  name: string;
-  repository: string;
-  type: ApplicationType;
-}
-
-export enum ApplicationType {
-  Rest,
-  Binary,
-  Web,
 }
 
 export const applications = new Map<string, Application>([

@@ -8,6 +8,8 @@ import promptForTaskDetails from "./commands/formatter.js";
 import { MyCommand, MyOptions } from "./commands/command.js";
 import { NewconCommand } from "./commands/newcon/newcon.js";
 import { NewconOptions } from "./commands/newcon/model.js";
+import { LogstashCommand } from "./commands/logstash/logstash.js";
+import { LogstashOptions } from "./commands/logstash/model.js";
 
 // Define your command and options
 // yargs
@@ -37,9 +39,11 @@ const yargsInstance = yargs(hideBin(process.argv));
 // Create an instance of MyCommand
 const myCommand = new MyCommand<MyOptions>();
 const newcon = new NewconCommand<NewconOptions>();
+const logstash = new LogstashCommand<LogstashOptions>();
 yargs(hideBin(process.argv))
   .command(myCommand)
   .command(newcon)
+  .command(logstash)
   .command(
     "select <color>",
     "Select a color to display",

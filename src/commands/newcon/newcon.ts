@@ -1,8 +1,9 @@
 import { ArgumentsCamelCase, Argv, CommandModule } from "yargs";
-import { Application, NewconOptions } from "./model.js";
-import { installApplication } from "./utils/applicationInstaller.js";
-import { getApplication } from "./utils/applicationResolver.js";
-import { getInstallPath } from "./utils/installPathResolver.js";
+import { NewconOptions } from "./model.js";
+import { installApplication } from "../utils/applicationInstaller.js";
+import { getApplication } from "../utils/applicationResolver.js";
+import { getInstallPath } from "../utils/installPathResolver.js";
+import { Application } from "../utils/model.js";
 
 export class NewconCommand<U extends NewconOptions>
   implements CommandModule<{}, U>

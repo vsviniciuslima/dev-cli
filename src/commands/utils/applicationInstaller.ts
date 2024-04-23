@@ -1,18 +1,21 @@
-import { Application, ApplicationType } from "../model.js";
+import { Application, ApplicationType } from "./model.js";
 
 export async function installApplication(
   application: Application,
   installPath: string
 ): Promise<any> {
   switch (application.type) {
-    case ApplicationType.Rest:
-      await installRestApplication(application, installPath);
-      break;
     case ApplicationType.Binary:
       await installBinaryApplication(application, installPath);
       break;
+    case ApplicationType.Rest:
+      await installRestApplication(application, installPath);
+      break;
     case ApplicationType.Web:
       await installWebApplication(application, installPath);
+      break;
+    case ApplicationType.Zip:
+      await installZipApplication(application, installPath);
       break;
     default:
       console.error("Tipo de aplicação não suportado");
@@ -41,5 +44,13 @@ async function installBinaryApplication(
   path: string
 ): Promise<any> {
   console.log("instalando aplicação binaria", application);
+  return Promise.resolve();
+}
+
+async function installZipApplication(
+  application: Application,
+  path: string
+): Promise<any> {
+  console.log("instalando aplicação Zip", application);
   return Promise.resolve();
 }

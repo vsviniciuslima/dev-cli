@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
-import { Application, applications } from "../model.js";
+import { applications } from "../newcon/model.js";
+import { Application } from "./model.js";
 
 export async function getApplication(): Promise<Application> {
   const applicationAnswer = await inquirer.prompt([
